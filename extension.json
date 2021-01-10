@@ -1,6 +1,6 @@
 {
 	"name": "BootstrapComponents",
-	"version": "4.0.1-dev",
+	"version": "4.0.0",
 	"author": [
 		"[https://www.semantic-mediawiki.org/wiki/User:Oetterer Tobias Oetterer]"
 	],
@@ -39,6 +39,10 @@
 			"value": true,
 			"descriptionmsg": "bootstrap-components-config-Whitelist",
 			"public": true
+		},
+		"BootstrapComponentsValidThemeColors": {
+			"value": [ "primary", "secondary", "success", "danger", "warning", "info", "light", "dark", "white" ],
+			"description": "Defines valid Bootstrap Theme Colors!"
 		}
 	},
 	"callback": "BootstrapComponents\\BootstrapComponents::init",

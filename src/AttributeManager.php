@@ -26,6 +26,8 @@
 
 namespace BootstrapComponents;
 
+use \MediaWiki\MediaWikiServices;
+
 /**
  * Class AttributeManager
  *
@@ -246,11 +248,13 @@ class AttributeManager {
 	 * @return array
 	 */
 	private function getAttributeRegister() {
+		$myConfig = MediaWikiServices::getInstance()->getConfigFactory()->makeConfig( 'BootstrapComponents' );
+		$validThemeColors = $myConfig->get( 'BootstrapComponentsValidThemeColors' );
 		return [
 			'active'      => self::NO_FALSE_VALUE,
-			'background'  => [ 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'white', ],
+			'background'  => $validThemeColors,
 			'class'       => self::ANY_VALUE,
-			'color'       => [ 'default', 'primary', 'secondary', 'success', 'danger', 'warning', 'info', 'light', 'dark', 'white', ],
+			'color'       => array_merge($validThemeColors, ["default"]),
 			'collapsible' => self::NO_FALSE_VALUE,
 			'disabled'    => self::NO_FALSE_VALUE,
 			'dismissible' => self::NO_FALSE_VALUE,
